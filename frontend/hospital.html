@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> EHR </a>
+
+    <nav class="navbar">
+      <a href="index.html">home</a>
+      <a href="patient.html">Patient</a>
+      <a href="get.html">Get Details</a>
+      <!-- <a href="history.html">History</a> -->
+      <a href="hospital.html">Hospital</a>
+      <a href="doctor.html">Doctor</a>
+      <a href="pathlab.html">Pathlab</a>
+        
+        
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+
+
+<!-- home section ends -->
+
+<!-- icons section starts  -->
+
+
+
+<!-- icons section ends -->
+
+<!-- services section starts  -->
+
+<section class="patient" id="patient" >
+    <br><br><br><p>
+    <h1 class="heading"> <span>HOSPITAL </h1> </p>   
+
+    <div class="row" style="display: flex; justify-content:center;">
+       
+        <div class="container" >
+          <input type="checkbox" id="flip">
+            <div class="cover">
+              <div class="front">
+                <!--<img src="images/frontImg.jpg" alt="">-->
+                <div class="text">
+                 
+                </div>
+              </div>
+              <div class="back">
+                <!--<img class="backImg" src="images/backImg.jpg" alt="">-->
+                <div class="text">
+                 
+                </div>
+              </div>
+            </div>
+            <div class="forms">
+                <div class="form-content">
+                  <div class="login-form">
+                    <div class="title">Create Report</div>
+                  <form action="#" method="post">
+                    <div class="input-boxes">
+                      <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" id="aadhar" placeholder="Enter your patient id / aadhaar" required>
+                      </div>
+                      <div class="input-box">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="doctorid" placeholder="Enter your doctor id" required>
+                      </div>
+                      <div class="container" id="reportId" style="display:none;">
+                      </div>
+                      <div class="button input-box">
+                        <input type="submit" id="createReport" value="Create Report">
+                      </div>
+                      <div class="text sign-up-text">Begin a treatment? <label for="flip">Click here</label></div>
+                    </div>
+                </form>
+              </div>
+                                    <!--------------------------------------------------------------->
+                         <!--------------------------------------------------------------->
+                            <!--------------------------------------------------------------->
+                               <!--------------------------------------------------------------->
+                <div class="signup-form">
+                  <div class="title">Treatment</div>
+                <form action="#" method="put">
+                    <div class="input-boxes">
+                      <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input id="treatmentId" type="text" placeholder="Enter treatment id" required>
+                      </div>
+                      <div class="input-box">
+                        <i class="fas fa-user"></i>
+                        <input id="treatmentDoctorId" type="text" placeholder="Enter your superisor" required>
+                      </div>
+                      <div class="container" id="treatmentStatus" style="display:none;">
+                      </div>
+                      <div class="button input-box">
+                        <input id="startTreatment" type="submit" value="Start Treatment">
+                      </div>
+                      <div class="text sign-up-text">Create a report? <label for="flip">Login now</label></div>
+                    </div>
+              </form>
+            </div>
+            </div>
+            </div>
+          </div>
+   
+</section>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+<script>
+  let createReport = document.getElementById("createReport")
+  createReport.addEventListener('click', function(event) {
+      event.preventDefault();
+      let aadharNo = document.getElementById("aadhar").value
+      let doctorid =  document.getElementById("doctorid").value
+      fetch('http://localhost:3000/hospital/createreport', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          "patient_id": aadharNo,
+          "ref_doctor": doctorid
+        })
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let reportId = document.getElementById("reportId")
+        reportId.innerHTML = `<p style="font-size:15px; font-weight: bold;">Report ID</p>
+        <p style="font-size:20px; word-wrap: break-word;">`+ data +`</p>`
+        reportId.style.display = 'block';
+        console.log(data);
+      }).catch(function (error) {
+        alert(error);
+      });
+});
+
+let startTreatment = document.getElementById("startTreatment")
+startTreatment.addEventListener('click', function(event) {
+      event.preventDefault();
+      let treatmentId = document.getElementById("treatmentId").value
+      let doctorid =  document.getElementById("treatmentDoctorId").value
+      fetch('http://localhost:3000/hospital/starttreatment', {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'treatment_id': treatmentId,
+        },
+        body: JSON.stringify({
+          "supervisor": doctorid
+        })
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }else if(response.status == 500){
+          let treatmentStatus = document.getElementById("treatmentStatus")
+        treatmentStatus.innerHTML = `<p style="font-size:15px; font-weight: bold;">Treatment Status</p>
+        <p style="font-size:20px; word-wrap: break-word;">Treatment already started</p>`
+        treatmentStatus.style.display = 'block';
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let treatmentStatus = document.getElementById("treatmentStatus")
+        treatmentStatus.innerHTML = `<p style="font-size:15px; font-weight: bold;">Report ID</p>
+        <p style="font-size:20px; word-wrap: break-word;">`+ data.message +`</p>`
+        treatmentStatus.style.display = 'block';
+        console.log(data);
+      }).catch(function (error) {
+        //alert(error);
+      });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor </title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .row{
+          display: flex;
+          justify-content: center;
+      }
+  </style>
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> EHR </a>
+
+    <nav class="navbar">
+      <a href="index.html">home</a>
+      <a href="patient.html">Patient</a>
+      <a href="get.html">Get Details</a>
+      <!-- <a href="history.html">History</a> -->
+      <a href="hospital.html">Hospital</a>
+      <a href="doctor.html">Doctor</a>
+      <a href="pathlab.html">Pathlab</a>
+        
+        
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+
+
+<!-- home section ends -->
+
+<!-- icons section starts  -->
+
+
+
+<!-- icons section ends -->
+
+<!-- services section starts  -->
+
+<section class="patient" id="patient">
+    <br><br><br><p>
+    <h1 class="heading"> <span>DOCTOR'S DUTY </h1> </p>   
+
+    <div class="row">
+     
+        <div class="container" >
+          
+            <div class="forms">
+                <div class="form-content"   >
+                  <div class="login-form" style="width:50%; margin:auto;">
+                    <div class="title">doctor's comment</div>
+                  <form action="#" method="put" background="image/hosp2.jpg">
+                    <div class="input-boxes">
+                      <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" placeholder="Add comment" required>
+                      </div>
+                      <div class="input-box">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Enter refered doctor " required>
+                      </div>
+                      
+                      <br><br><br>
+                      <div class="button input-box">
+                        <input type="submit" value="Upload">
+                      </div>
+                      <div class="text sign-up-text">Want to refer test to patient? <label for="flip">Click here</label></div>
+                    </div>
+                </form>
+              </div>
+
+
+                <div class="signup-form">
+                  <div class="title">Refering Tests</div>
+                <form action="#" method="post">
+                    <div class="input-boxes">
+                      <div class="input-box">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="reportId" placeholder="Enter report's id" required>
+                      </div>
+                      <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" id="testName" placeholder="Enter test name" required>
+                      </div>
+                      <div class="input-box">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="referDoctorId" placeholder="Enter doctor's id" required>
+                      </div>
+                      <!-- <div class="input-box">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Enter type of test" required>
+                      </div> -->
+                      <label for="TypeofTest" style="font-size: 20px;"><br><bold> TypeofTest :</bold></label>
+                      <select name="till">
+                          <option id="typeofTest">1</option></select>
+                          <div class="container" id="testId" style="display:none;">
+                          </div>
+                      <div class="button input-box">
+                        <input type="submit" id="refer" value="Refer ">
+                      </div>
+                      <div class="text sign-up-text">Want to add comment to a report? <label for="flip">Click here</label></div>
+                    </div>
+              </form>
+            </div></div></div></div></div></section>
+            </div>
+            </div>
+          </div></div><br><br><br><br><br><section class="patient" id="patient">
+            
+          <div class="row" >
+         
+            <div class="container">
+                
+                <div class="forms">
+                    <div class="form-content">
+                      <div class="login-form" style="width:50%; margin:auto;">
+                        <div class="title">Add comment to treatment</div>
+                      <form action="#" method="put">
+                        <div class="input-boxes">
+                          <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" id="commentTreatmentId" placeholder="Enter treatment id" required>
+                          </div>
+                          <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" id="treatmentDrId" placeholder="Enter supervisior's id" required>
+                          </div>
+                          <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" id="treatmentDrComment" placeholder="Enter your comment" required>
+                          </div>
+                          
+                          <div class="container" id="commentStatus" style="display:none;">
+                          </div>
+                          
+                          <div class="button input-box">
+                            <input id="addComment" type="submit" value="Add comment">
+                          </div>
+                          <div class="text sign-up-text">Recommend a treatment? <label for="flip">Click here</label></div>
+                        </div>
+                    </form>
+                  </div>
+                    <div class="signup-form">
+                      <div class="title">Refer Treatment</div>
+                    <form action="#" method="post">
+                        <div class="input-boxes">
+                          <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="treatmentReportId" placeholder="Enter report's id" required>
+                          </div>
+                          <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            <input id="treatmentDoctor" type="text" placeholder="Enter your doctor" required>
+                          </div>
+                          <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            <input id="treatmentName" type="text" placeholder="Enter your treatment name" required>
+                          </div>
+
+                          <div class="container" id="treatmentId" style="display:none;">
+                          </div>
+                          <div class="button input-box">
+                            <input id="startTreatment"type="submit" value="Start Treatment">
+                          </div>
+                          <div class="text sign-up-text">add comment to treatment? <label for="flip">click here</label></div>
+                        </div>
+                  </form></div></div></div></div></div></section>
+                  <section class="patient" id="patient">
+                    <br><br><br><p>
+                    
+
+              <div class="row">
+                
+                <div class="container" >
+                    
+                    <div class="forms">
+                        <div class="form-content">
+                          <div class="login-form" style="width:50%; margin:auto;" >
+                            <div class="title">Add media files to treatment</div>
+                          <form action="#" method="put" background="image/hosp2.jpg">
+                            <div class="input-boxes">
+
+                              <div class="input-box">
+                                <i class="fas fa-heartbeat"></i>
+                                <input type="text" id="mediaTreatmentid" name="name" placeholder="Enter treatment id">
+                                </div>
+                              <div class="input-box">
+                                <i class="fas fa-user"></i>
+                            <input type="text" id="supervisorId" name="name" placeholder="Enter supervisor's ID">
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                               <input type="text" id="mediaFiles" name="name" placeholder="Enter no. of media files">
+                            </div>
+                            <!-- <div class="input-box">
+                                <i class="fas fa-chevron-right"></i>
+                                <input type="file" id="files" name="files" multiple><br><br>
+                            </div> -->
+                            <div class="container" id="treatmentFiles" style="display:none;">
+                                <p style="font-size:15px; font-weight: bold;">Treatment Media Files Hash Location</p>
+                            </div>
+                              
+                              
+                              <div class="button input-box">
+                                <input id="uploadMedia" type="submit" value="Upload">
+                              </div>
+                              <div class="text sign-up-text">Prescribe drugs? <label for="flip">Click here</label></div>
+                            </div>
+                        </form>
+                      </div>
+                        <div class="signup-form">
+                          <div class="title">Prescribing drugs</div>
+                        <form action="#" method="post">
+                            <div class="input-boxes">
+                              <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input id="presReportId" type="text" placeholder="Enter report id" required>
+                              </div> 
+                             <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input id="presDoctor" type="text" placeholder="Enter doctor's id" required>
+                              </div> 
+                              <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input id="drugs" type="text" placeholder="Enter drugs" required>
+                              </div> 
+                              <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input id="doses" type="text" placeholder="Enter doses" required>
+                              </div> 
+                              <div class="container" id="drugId" style="display:none;">
+                              </div>
+                              <div class="button input-box">
+                                <input type="submit" id="prescribe" value="prescribe">
+                              </div>
+                              <div class="text sign-up-text">Want to add media files to treatment? <label for="flip">click here</label></div>
+                            </div>
+                      </form>
+                    </div>
+                    </div>
+                    </div>
+                  </div></div>
+</section>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<script>
+     let refer = document.getElementById("refer")
+     refer.addEventListener('click',function(event) {
+      event.preventDefault();
+      let reportId = document.getElementById("reportId").value
+      let testName = document.getElementById("testName").value
+      let referDoctorId = document.getElementById("referDoctorId").value
+      let typeofTest = document.getElementById("typeofTest").value
+      
+      console.log(reportId,testName,referDoctorId,typeofTest);
+      fetch('http://localhost:3000/doctor/report/reftest', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'report_id': reportId,
+        },
+        body: JSON.stringify({
+          "name": testName,
+          "ref_doctor": referDoctorId,
+          "type_of_test": typeofTest
+        })
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let testId = document.getElementById("testId")
+        testId.innerHTML = `<p style="font-size:15px; font-weight: bold;">Test ID</p>
+        <p style="font-size:20px; word-wrap: break-word;">`+ data.test_id +`</p>`
+        testId.style.display = 'block';
+        console.log(data);
+      }).catch(function (error) {
+        alert(error);
+      });
+  });
+
+  let prescribe = document.getElementById("prescribe")
+  prescribe.addEventListener('click',function(event) {
+      event.preventDefault();
+      let reportId = document.getElementById("presReportId").value
+      let doctorId = document.getElementById("presDoctor").value
+      let drugs = document.getElementById("drugs").value
+      let doses = document.getElementById("doses").value
+      
+      let realDrugs = "[\""+ drugs +"\"]"
+      let realDoses = "[\""+ doses +"\"]"
+
+      fetch('http://localhost:3000/doctor/report/presdrugs', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'report_id': reportId,
+        },
+        body: JSON.stringify({
+          "ref_doctor": doctorId,
+          "drugs": realDrugs,
+          "doses": realDoses
+        })
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let drugId = document.getElementById("drugId")
+        drugId.innerHTML = `<p style="font-size:15px; font-weight: bold;">Drug ID</p>
+        <p style="font-size:20px; word-wrap: break-word;">`+ data.drug_id +`</p>`
+        drugId.style.display = 'block';
+        console.log(data);
+      }).catch(function (error) {
+        alert(error);
+      });
+  });
+
+
+  let startTreatment = document.getElementById("startTreatment")
+  startTreatment.addEventListener('click',function(event) {
+      event.preventDefault();
+      let reportId = document.getElementById("treatmentReportId").value
+      let treatmentDoctor = document.getElementById("treatmentDoctor").value
+      let treatmentName = document.getElementById("treatmentName").value
+
+      console.log(reportId,treatmentDoctor,treatmentName);
+      fetch('http://localhost:3000/doctor/report/reftreatment', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'report_id': reportId,
+        },
+        body: JSON.stringify({
+          "ref_doctor": treatmentDoctor,
+          "name": treatmentName
+        })
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let treatmentId = document.getElementById("treatmentId")
+        treatmentId.innerHTML += `<p style="font-size:15px; font-weight: bold;">Treatment ID</p>
+        <p style="font-size:20px; word-wrap: break-word;">`+ data.test_id +`</p>`
+        treatmentId.style.display = 'block';
+        console.log(data);
+      }).catch(function (error) {
+        alert(error);
+      });
+  });
+
+  let addComment = document.getElementById("addComment")
+  addComment.addEventListener('click',function(event) {
+      event.preventDefault();
+      let treatmentId = document.getElementById("commentTreatmentId").value
+      let doctorId = document.getElementById("treatmentDrId").value
+      let comment = document.getElementById("treatmentDrComment").value
+  
+      fetch('http://localhost:3000/doctor/treatment/addcomment', {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'treatment_id': treatmentId,
+        },
+        body: JSON.stringify({
+          "supervisor": doctorId,
+          "comment": comment
+        })
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let commentStatus = document.getElementById("commentStatus")
+        commentStatus.innerHTML = `<p style="font-size:15px; font-weight: bold;">Comment Status</p>
+        <p style="font-size:20px; word-wrap: break-word;">`+ data.message +`</p>`
+        commentStatus.style.display = 'block';
+        console.log(data);
+      }).catch(function (error) {
+        alert(error);
+      });
+  });
+
+
+  let uploadMedia = document.getElementById("uploadMedia")
+  uploadMedia.addEventListener('click',function(event) {
+      event.preventDefault();
+      let treatmentId = document.getElementById("mediaTreatmentid").value
+      let doctorId = document.getElementById("supervisorId").value
+      let mediaFiles = document.getElementById("mediaFiles").value
+      console.log(treatmentId, doctorId, mediaFiles);
+      fetch('http://localhost:3000/doctor/treatment/addmediafile', {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'treatment_id': treatmentId,
+        },
+        body: JSON.stringify({
+          "supervisor": doctorId,
+          "no_of_mediafile": mediaFiles
+        })
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let treatmentFiles = document.getElementById("treatmentFiles")
+        let dataStr = JSON.stringify(data)
+        console.log(dataStr);
+        dataStr = dataStr.slice(1,-1)
+        const hashArr = dataStr.split(",")
+        for(let i=0;i<hashArr.length;i++){
+          treatmentFiles.innerHTML += `
+            <p style="font-size:20px; word-wrap: break-word;">`+ hashArr[i]+`</p><br/>`
+        }
+        treatmentFiles.style.display = 'block';
+        console.log(data);
+      }).catch(function (error) {
+        alert(error);
+      });
+  });
+</script>
+</body>
+</html>

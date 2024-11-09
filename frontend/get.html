@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Details </title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        form{
+            display: flex;
+            justify-content: center;
+        }
+        .details{
+            display: flex;
+            justify-content: center;
+            overflow-wrap: break-word;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> EHR </a>
+
+    <nav class="navbar">
+        <a href="index.html">home</a>
+        <a href="patient.html">Patient</a>
+        <a href="get.html">Get Details</a>
+        <!-- <a href="history.html">History</a> -->
+        <a href="hospital.html">Hospital</a>
+        <a href="doctor.html">Doctor</a>
+        <a href="pathlab.html">Pathlab</a>
+        
+        
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+
+
+<!-- home section ends -->
+
+<!-- icons section starts  -->
+
+
+
+<!-- icons section ends -->
+
+<!-- services section starts  -->
+
+<section class="pathlab" id="pathlab" >
+    <br><br><br><p>
+    <h1 class="heading"> <span>Get Details </h1> </p>
+    <div class="row" >
+     <form action="#" method="put">
+   
+     <div class="container" >
+        <centre>
+        <div class="forms">
+            <div class="form-content">
+              <div class="login-form">
+                <div class="title">Report details</div>
+                <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                        <input type="text" id="reportId" name="name" placeholder="Enter report ID">
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                        <input type="text" id="reportRequesterId" name="name" placeholder="Enter requester's ID">
+                        </div>
+                        
+                        <div class="container" id="reportFiles" style="display:none;">
+                            <p style="font-size:15px; font-weight: bold;">Report Files Hash Location</p>
+                        </div>
+                        <div class="button input-box">
+                            <input id="getReport" type="submit" value="Get Report details">
+                        </div>
+                 </div>
+            </div>
+
+            <div>
+                <img src="image/getrepo.jpg" style="margin-right:100px;">
+            </div>
+
+            </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    <br><br>
+
+    <div class="details">
+        <div class="container" id="reportPrint" style="display: none;">
+            
+        </div>
+    </div>
+    
+<br><br>
+    <div class="row">
+        <form action="#" method="put">
+      
+        <div class="container">
+           <centre>
+           <div class="forms">
+               <div class="form-content">
+                <div>
+                    <img src="image/hosp3.jpg" style="margin-left:100px;">
+                </div>
+                 <div class="login-form">
+                   <div class="title">Treatment details</div>
+                   <div class="input-boxes">
+                           <div class="input-box">
+                               <i class="fas fa-user"></i>
+                           <input type="text" id="treatmentId" name="name" placeholder="Enter treatment ID">
+                           </div>
+                           <div class="input-box">
+                               <i class="fas fa-user"></i>
+                           <input type="text" id="treatmentRequesterId" name="name" placeholder="Enter requester's ID">
+                           </div>
+                           
+                           <div class="container" id="treatmentFiles" style="display:none;">
+                               <p style="font-size:15px; font-weight: bold;">Treatment Files Hash Location</p>
+                           </div>
+                           <div class="button input-box">
+                               <input id="getTreatment" type="submit" value="Get treatment details">
+                           </div>
+    </div>
+    </div>
+   
+   
+   
+    </div>
+    </div>
+    </div></form>
+       </div>
+  <div class="details">
+        <div class="container" id="treatmentPrint" style="display: none;">
+            
+        </div>
+    </div>
+       <br><br>
+    <div class="row">
+        <form action="#" method="put">
+      
+        <div class="container">
+           <centre>
+           <div class="forms">
+               <div class="form-content">
+               
+                 <div class="login-form">
+                   <div class="title">Test details</div>
+                   <div class="input-boxes">
+                           <div class="input-box">
+                               <i class="fas fa-user"></i>
+                           <input type="text" id="testId" name="name" placeholder="Enter test ID">
+                           </div>
+                           <div class="input-box">
+                               <i class="fas fa-user"></i>
+                           <input type="text" id="testRequesterId" name="name" placeholder="Enter requester's ID">
+                           </div>
+                           
+                           <div class="container" id="testFiles" style="display:none;">
+                               <p style="font-size:15px; font-weight: bold;">Test Files Hash Location</p>
+                           </div>
+                           <div class="button input-box">
+                               <input id="getTest" type="submit" value="Get test details">
+                           </div>
+    </div>
+    </div>
+    <div>
+        <img src="image/gettest.jpg" style="margin-right:100px;">
+    </div>
+   
+   
+    </div>
+    </div>
+    </div></form>
+       </div>
+       <div class="details">
+        <div class="container" id="testPrint" style="display: none;">
+            
+        </div>
+    </div>
+</section> 
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<script>
+    
+
+    let getReport = document.getElementById("getReport")
+    getReport.addEventListener('click',function(event) {
+      event.preventDefault();
+      let reportId = document.getElementById("reportId").value
+      let requesterId = document.getElementById("reportRequesterId").value
+   
+     
+      fetch('http://localhost:3000/report', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'report_id': reportId,
+          'requester': requesterId
+        }
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let reportPrint = document.getElementById("reportPrint")
+        reportPrint.innerHTML = JSON.stringify(data)
+        reportPrint.style.display = 'block';
+        console.log(JSON.stringify(data));
+      }).catch(function (error) {
+        alert(error);
+      });
+  });
+
+  let getTreatment = document.getElementById("getTreatment")
+      getTreatment.addEventListener('click',function(event) {
+      event.preventDefault();
+      let treatmentId = document.getElementById("treatmentId").value
+      let requesterId = document.getElementById("treatmentRequesterId").value
+   
+     
+      fetch('http://localhost:3000/treatment', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'treatment_id': treatmentId,
+          'requester': requesterId
+        }
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let treatmentPrint = document.getElementById("treatmentPrint")
+        treatmentPrint.innerHTML = JSON.stringify(data)
+        treatmentPrint.style.display = 'block';
+        console.log(JSON.stringify(data));
+        console.log(data);
+      }).catch(function (error) {
+        alert(error);
+      });
+  });
+
+  let getTest = document.getElementById("getTest")
+      getTest.addEventListener('click',function(event) {
+      event.preventDefault();
+      let testId = document.getElementById("testId").value
+      let requesterId = document.getElementById("treatmentRequesterId").value
+   
+     
+      fetch('http://localhost:3000/test', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'test_id': testId,
+          'requester': requesterId
+        }
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let testPrint = document.getElementById("testPrint")
+        testPrint.innerHTML = JSON.stringify(data)
+        testPrint.style.display = 'block';
+        console.log(JSON.stringify(data));
+        console.log(data);
+      }).catch(function (error) {
+        alert(error);
+      });
+  });
+</script>
+
+
+</body>
+</html>
+
+
+<!-- 
+<h1>Test Results</h1><input type="text" name="name" placeholder="Enter the result">
+<h1>Supervisor</h1><input type="text" name="name" placeholder="Enter name of supervisor">
+<h1>No. of media files</h1><input type="text" name="name" placeholder="Enter no. of media files">
+<h1>Select files</h1><input type="file" id="files" name="files" multiple><br><br>
+<button><input type="submit" name="upload"></button>
+</div> </form>
+</div>
+
+</section>  -->

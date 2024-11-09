@@ -1,2 +1,2 @@
-# Majpor-project
-Major Project
+# Health-Chain
+The project uses the hospital-managed Hyperledger Fabric network (v2.0) to keep patient-centered and secure patient medical records. This means that the patient's medical records cannot be accessed without consent. All participants in the network, including doctors, hospitals, pharmacies and private clinics, receive a digital certificate from the official national medical association to join the network. The doctor can perform all  CRUD operations on the patient's records.   This project helps to provide people with accurate and verifiable certificates in the event of a crisis such as the outbreak of COVID-19. It also tracks infections only during the scream / pandemic period.

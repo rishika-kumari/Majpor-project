@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      form{
+          display: flex;
+          justify-content: center;
+      }
+  </style>
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> EHR </a>
+
+    <nav class="navbar">
+      <a href="index.html">home</a>
+      <a href="patient.html">Patient</a>
+      <a href="get.html">Get Details</a>
+      <!-- <a href="history.html">History</a> -->
+      <a href="hospital.html">Hospital</a>
+      <a href="doctor.html">Doctor</a>
+      <a href="pathlab.html">Pathlab</a>
+        
+        
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+
+
+<!-- home section ends -->
+
+<!-- icons section starts  -->
+
+
+
+<!-- icons section ends -->
+
+<!-- services section starts  -->
+
+<section class="pathlab" id="pathlab">
+    <br><br><br><p>
+    <h1 class="heading"> <span>Patient history </h1> </p>
+    <div class="row">
+     <form action="#" method="put">
+   
+     <div class="container">
+        <centre>
+        <div class="forms">
+            <div class="form-content">
+              <div class="login-form">
+                <div class="title">request patient's history</div>
+                <div class="input-boxes">
+                   
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                           <input type="text" id="aadhar" name="name" placeholder="Enter patient's aadhar no.">
+                        </div>
+                        
+                       
+                        <div class="button input-box">
+                            <input id="submit" type="submit" value="Request history">
+                        </div>
+ </div>
+ </div>
+
+<div>
+    <img src="image/history.jpg" style="margin-right:100px; size: 50%;">
+</div>
+
+ </div>
+ </div>
+ </div>
+    </div> 
+</form>
+</section> 
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<script>
+  // localStorage.setItem("0eff31fbc97b74b8febd34948c418734bac8873045ce04d87e0a962848fa30170","aadharNO--/media/cold.pdf")
+  //   console.log(localStorage)
+
+
+    let submit = document.getElementById("submit")
+    submit.addEventListener('click',function(event) {
+      event.preventDefault();
+      let testId = document.getElementById("testId").value
+      let result = document.getElementById("result").value
+      let supervisorId = document.getElementById("supervisorId").value
+      let mediaFiles = document.getElementById("mediaFiles").value
+
+      console.log(result,supervisorId,mediaFiles);
+      fetch('http://localhost:3000/pathlab/dotest', {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'test_id': testId,
+        },
+        body: JSON.stringify({
+          "test_result": result,
+          "supervisor": supervisorId,
+          "no_of_mediafile": mediaFiles
+        })
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let len = parseInt(mediaFiles)
+        let pathLabFiles = document.getElementById("pathLabFiles")
+        for(let i=0;i<len;i++){
+            pathLabFiles.innerHTML += `
+            <p style="font-size:20px; word-wrap: break-word;">`+ data.MediaFile[i] +`</p><br/>`
+        }
+        pathLabFiles.style.display = 'block';
+        console.log(data);
+      }).catch(function (error) {
+        alert(error);
+      });
+  });
+</script>
+
+</body>
+</html>
+
+
+<!-- 
+<h1>Test Results</h1><input type="text" name="name" placeholder="Enter the result">
+<h1>Supervisor</h1><input type="text" name="name" placeholder="Enter name of supervisor">
+<h1>No. of media files</h1><input type="text" name="name" placeholder="Enter no. of media files">
+<h1>Select files</h1><input type="file" id="files" name="files" multiple><br><br>
+<button><input type="submit" name="upload"></button>
+</div> </form>
+</div>
+
+</section>  -->

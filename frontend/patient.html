@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> EHR </a>
+
+    <nav class="navbar">
+      <a href="index.html">home</a>
+      <a href="patient.html">Patient</a>
+      <a href="get.html">Get Details</a>
+      <!-- <a href="history.html">History</a> -->
+      <a href="hospital.html">Hospital</a>
+      <a href="doctor.html">Doctor</a>
+      <a href="pathlab.html">Pathlab</a>
+        
+        
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+
+
+<!-- home section ends -->
+
+<!-- icons section starts  -->
+
+
+
+<!-- icons section ends -->
+
+<!-- services section starts  -->
+
+<section class="patient" id="patient">
+    <br><br><br><p>
+    <h1 class="heading"> <span>patient</span> details </h1> </p>   
+
+    <div class="row" style="display:flex; justify-content:center;">
+        <div class="container">
+            <input type="checkbox" id="flip">
+            <div class="cover">
+              <div class="front">
+                <!--<img src="images/frontImg.jpg" alt="">-->
+                <div class="text">
+                 
+                </div>
+              </div>
+              <div class="back">
+                <!--<img class="backImg" src="images/backImg.jpg" alt="">-->
+                <div class="text">
+                 
+                </div>
+              </div>
+            </div>
+            <div class="forms">
+                <div class="form-content">
+                  <div class="login-form">
+                    <div class="title">New Patient Register</div>
+                  <form action="#"  method="post">
+                    <div class="input-boxes">
+                      <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input id="newAadhar" type="text" placeholder="Enter your aadhar" required>
+                      </div>
+                      <div class="input-box">
+                        <i class="fas fa-user"></i>
+                        <input id="newName" type="text" placeholder="Enter your name" required>
+                      </div>
+                      <div class="container" id="registerStatus" style="display:none;">
+                      </div>
+                      
+                      <div class="button input-box">
+                        <input id="register" type="submit" value="Register">
+                      </div>
+                      <div class="text sign-up-text">Want to provide consent to other authorities? <label for="flip">Click here</label></div>
+                    </div>
+                </form>
+              </div>
+
+
+
+              <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+              <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+              <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+                <div class="signup-form">
+                  <div class="title">Provide Consent</div>
+                <form action="#" method="put">
+                    <div class="input-boxes">
+                      <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" id="aadharConsent" placeholder="Enter your aadhar" required>
+                      </div>
+
+                        <label for="type"><bold> Type :</bold></label>
+<select name="type" id="type">
+    <option value="ADD" id="add">ADD</option></select>
+  
+
+                      </div>
+                      <div class="input-box">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="idConsenter" placeholder="Enter your consenter id" required>
+                      </div>
+                      <label for="till"><br><bold> Till :</bold></label>
+                    <select name="till" id="till">
+                        <option id="tillTime">111585886650</option></select>
+                      <div class="container" id="consentStatus" style="display:none;">
+                      </div>
+                      
+                        <div class="button input-box">
+                        <input type="submit" id="provideConsent" value="Submit">
+                      </div>
+                      <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+                    </div>
+              </form>
+            </div>
+            </div>
+            </div>
+          </div>
+   
+</section>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<script>
+  let signup = document.getElementById("register")
+  signup.addEventListener('click',function(event) {
+      event.preventDefault();
+      let aadharNo = document.getElementById("newAadhar").value
+      let name =  document.getElementById("newName").value
+      console.log(aadharNo);
+      console.log(name);
+      fetch('http://localhost:3000/patient/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "aadhaar": aadharNo,
+          "consenter": name
+        }),
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }else{
+          let registerStatus = document.getElementById("registerStatus")
+        registerStatus.innerHTML = `<p style="font-size:15px; font-weight: bold;">Report ID</p>
+        <p style="font-size:20px; word-wrap: break-word;">Already Registered</p>`
+        registerStatus.style.display = 'block';
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let registerStatus = document.getElementById("registerStatus")
+        registerStatus.innerHTML = `<p style="font-size:15px; font-weight: bold;">Consent Status</p>
+        <p style="font-size:20px; word-wrap: break-word;">`+ data.message +`</p>`
+        registerStatus.style.display = 'block';
+        console.log(data);
+      }).catch(function (error) {
+         console.log(error);
+      });
+  });
+
+
+  
+  let provideConsent = document.getElementById("provideConsent")
+  provideConsent.addEventListener('click',function(event) {
+      event.preventDefault();
+      let aadharNo = document.getElementById("aadharConsent").value
+      let add = document.getElementById("add").value
+      let to =  document.getElementById("idConsenter").value
+      let till =  document.getElementById("tillTime").value
+
+      fetch('http://localhost:3000/patient/giveconsent', {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          "aadhaar": aadharNo,
+          "type": add,
+          "to": to,
+          "till": till
+        })
+      }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      }).then(function (data) {
+        let consentStatus = document.getElementById("consentStatus")
+        consentStatus.innerHTML = `<p style="font-size:15px; font-weight: bold;">Registration Status</p>
+        <p style="font-size:20px; word-wrap: break-word;">`+ data.message +`</p>`
+        consentStatus.style.display = 'block';
+        console.log(data);
+      }).catch(function (error) {
+        alert(error);
+      });
+  });
+
+
+</script>
+</body>
+</html>
